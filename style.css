@@ -399,7 +399,7 @@ footer li {
 }
 
 /* Små skjermer: horisontal scroll i stedet for å blåse opp kortene */
-@media (max-width: 980px) {
+@media (max-width: 720px) {
   .product-grid {
     display: grid;
     grid-template-columns: none; /* eller: unset; */
@@ -416,7 +416,7 @@ footer li {
 }
 
 /* penere tynn scrollbar på mobil/Chrome */
-@media (max-width: 9780px) {
+@media (max-width: 720px) {
   .product-grid::-webkit-scrollbar {
     height: 8px;
   }
