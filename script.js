@@ -1,5 +1,5 @@
 // ===============================
-// DATA (du kan bruke dine egne)
+// DATA
 // ===============================
 const products = [
   {
@@ -321,7 +321,7 @@ function renderMenu() {
 }
 
 // ===============================
-// EVENT-DELEGERING (robust når UI byttes)
+// EVENT-DELEGERING
 // ===============================
 menu?.addEventListener("click", (e) => {
   const addBtn = e.target.closest(".add-btn");
@@ -355,7 +355,7 @@ menu?.addEventListener("click", (e) => {
     favBtn.classList.toggle("is-fav", product.favorite);
     favBtn.setAttribute("aria-pressed", product.favorite ? "true" : "false");
     alert(
-      product.favorite ? "Lagt til i favoritter!" : "Fjernet fra favoritter."
+      product.favorite ? "Lagt til i favoritter ❤️" : "Fjernet fra favoritter."
     );
   }
 });

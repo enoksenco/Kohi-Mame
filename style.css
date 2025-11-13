@@ -5,7 +5,8 @@ html {
 
 :root {
   --header-h: 75px;
-} /* juster til høyde */
+}
+
 section[id] {
   scroll-margin-top: var(--header-h);
 }
