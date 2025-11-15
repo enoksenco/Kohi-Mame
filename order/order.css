@@ -1,0 +1,331 @@
+/*Universielt for alle sidene*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #e9e3d6;
+}
+
+h1 {
+  font-family: "Shippori Mincho", serif;
+  font-size: 48px;
+}
+
+h2 {
+  font-family: "Shippori Mincho", serif;
+  font-size: 32px;
+}
+
+h3 {
+  font-family: "Shippori Mincho", serif;
+  font-size: 30px;
+  text-align: center;
+  color: black;
+}
+
+p {
+  font-family: "Montaga", serif;
+  font-style: normal;
+  font-size: 20px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+/*navigasjon*/
+nav {
+  background-color: #e9e3d6;
+  padding: 0px 40px;
+  padding-left: 20px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+nav button {
+  border: none;
+  background-color: transparent;
+}
+
+.orderpage-header {
+  font-size: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  border-radius: 8px;
+  justify-content: center;
+  background-color: #f9eedd;
+}
+
+.summary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+  gap: 1em;
+  padding: 1em;
+}
+.product-line {
+  display: grid;
+  grid-template-columns: repeat(3, 130px);
+}
+.product-line-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+.product-line-products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-line-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.summary-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.discount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 1em;
+  margin-top: 1em;
+  margin-bottom: 5em;
+}
+
+.discount label {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.discount input {
+  height: 30px;
+  width: 250px;
+}
+
+.discount button {
+  height: 30px;
+  width: 50px;
+  background-color: #6c7a5b;
+  color: white;
+}
+
+hr {
+  height: 2px;
+  background-color: black;
+  border: none;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pickup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+.pickup-options button {
+  justify-content: center;
+  font-family: "Shippori Mincho", serif;
+  border-radius: 8px;
+  background-color: #6c7a5b;
+  border-radius: 12px;
+  color: white;
+  font-size: 24px;
+  font-style: bold;
+  width: 200px;
+  height: 40px;
+  padding: -2em;
+}
+.pickup img {
+  height: 3em;
+}
+.pickup-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  align-items: center;
+}
+.contact-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.contact-information input {
+  height: 30px;
+  width: 250px;
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+.payment-option1 {
+  display: flex;
+  padding-bottom: 20px;
+  justify-content: left;
+  gap: 2em;
+  width: 300px;
+}
+.payment-option1 img {
+  height: 1.5em;
+}
+
+.payment-option2 {
+  display: flex;
+  padding-bottom: 20px;
+  justify-content: left;
+  gap: 2.5em;
+  width: 300px;
+}
+.payment-option2-undertext {
+  display: flex;
+  padding-left: 150px;
+  justify-content: left;
+  width: 300px;
+}
+
+.payment-option2 img {
+  height: 1.5em;
+}
+.terms {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.term1 {
+  display: flex;
+  margin-top: 1em;
+  gap: 20px;
+}
+.term1 img {
+  height: 100%;
+}
+.term1-criteria {
+  display: flex;
+  margin-top: 1em;
+  gap: 20px;
+}
+.term1-criteria img {
+  height: 100%;
+}
+
+.term2 {
+  display: flex;
+  margin-top: 1em;
+  gap: 20px;
+}
+
+.term2 img {
+  height: 100%;
+}
+
+footer {
+  height: 250px;
+  background-color: #f5f2ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+}
+
+.footer-align {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-lists {
+  display: flex;
+  gap: 30px;
+}
+
+footer li {
+  list-style: none;
+  font-family: "Montaga", serif;
+  font-style: normal;
+  font-size: 20px;
+  color: black;
+}
+
+.overlay-content {
+  position: fixed;
+  border-radius: 50px;
+  top: 0;
+  left: -50px;
+  height: 100%;
+  z-index: 1000;
+  background-color: #89947b;
+  width: 400px;
+  display: none;
+}
+#close-overlay {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 40px;
+  background-color: transparent;
+  border: none;
+}
+.overlay-content-buttons {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 8px;
+  gap: 20px;
+}
+
+.button-styling {
+  justify-content: center;
+  font-family: "Shippori Mincho", serif;
+  border-radius: 8px;
+  background-color: #6c7a5b;
+  border-radius: 12px;
+  color: white;
+  font-size: 24px;
+  font-style: bold;
+  width: 125px;
+  height: 66px;
+}
+
+.linkpage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  gap: 10px;
+}
