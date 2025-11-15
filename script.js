@@ -2,14 +2,17 @@
 // DATA
 // ===============================
 const products = [
+  // Oppretter en konstant array som inneholder alle produktene
+
   {
-    id: "umi-latte",
-    name: "Umi Latte",
-    description: "Latte med et hint av havsaltkaramell.",
-    price: 69,
-    category: "Japansk",
-    image: "images/umiLatte.png",
-    favorite: false,
+    // Første produktobjekt i arrayen, og de restende følger samme struktur
+    id: "umi-latte", // Unik nøkkel for produktet (brukes i logikk/DOM)
+    name: "Umi Latte", // Visningsnavn for produktet
+    description: "Latte med et hint av havsaltkaramell.", // Beskrivelse av produktet
+    price: 69, // Pris i norske kroner
+    category: "Japansk", // Kategori produktet tilhører
+    image: "images/umiLatte.png", // Bildebane for produktbildet
+    favorite: false, // Bolean som styrer hjerteaikonet (favorittstatus)
   },
   {
     id: "matcha-mame",
@@ -151,20 +154,26 @@ const products = [
   },
 ];
 
-const categoryOrder = ["Japansk", "Nordisk", "Varme", "Kalde"];
+const categoryOrder = ["Japansk", "Nordisk", "Varme", "Kalde"]; // Bestemmer rekkefølgen på kategoriene i menyen
 
 // ===============================
 // HJELPERE
 // ===============================
-const NOK = (n) =>
+const NOK = (
+  n // NOK er en formatteringsfunksjon (arrow funksjon)
+) =>
   new Intl.NumberFormat("no-NO", {
-    style: "currency",
-    currency: "NOK",
-    maximumFractionDigits: 0,
-  }).format(n);
+    // Bruker Intl.NumberFormat for norsk språk
+    style: "currency", // Setter stilen til currency (valuta)
+    currency: "NOK", // Setter valutaen til norske kroner
+    maximumFractionDigits: 0, // Gjør at vi viser hele kroner (ingen desimaler)
+  }).format(n); // Kaller .format med tallet n og returnerer f.eks "kr 69"
 
 function sectionIdForCategory(category) {
-  switch (category) {
+  // Hjelpefunksjon som oversetter kategorinavn til ID-er brukt på seksjoner
+  switch (
+    category // Returnerer en streng basert på kategorinavnet for å matche ankere i menyen
+  ) {
     case "Japansk":
       return "japansk-inspirerte-drikker";
     case "Nordisk":
@@ -173,7 +182,7 @@ function sectionIdForCategory(category) {
       return "varme-drikker";
     case "Kalde":
       return "kalde-drikker";
-    default:
+    default: // Lager en generell ID ved å gjøre om til små bokstaver og erstatte mellomrom med bindestreker
       return category.toLowerCase().replace(/\s+/g, "-");
   }
 }
@@ -181,115 +190,128 @@ function sectionIdForCategory(category) {
 // ===============================
 // KURV-STATE (med localStorage)
 // ===============================
-const cart = { items: {}, count: 0, total: 0 };
+const cart = { items: {}, count: 0, total: 0 }; // Oppretter et objekt for handlekurven med varer, antall og totalpris
 
 (function loadCart() {
+  // En umiddelbart kalt funksjon for å laste inn kurvdata fra localStorage ved oppstart
   try {
-    const raw = localStorage.getItem("cart-v1");
-    if (!raw) return;
-    const data = JSON.parse(raw);
-    if (data && typeof data === "object") Object.assign(cart, data);
-  } catch {}
-})();
+    const raw = localStorage.getItem("cart-v1"); // Henter tidligere lagret kurvdata fra localStorage
+    if (!raw) return; // Hvis ingen data finnes, avslutter funksjonen
+    const data = JSON.parse(raw); // Prøver å parse JSON-strengen til et objekt
+    if (data && typeof data === "object") Object.assign(cart, data); // Hvis data er et objekt, kopieres det inn i eksisterende cart-objekt
+  } catch {} // try/catch {} fanger og ignorerer eventuelle feil under parsing eller henting
+})(); // () på slutten kaller funksjonen umiddelbart
 function saveCart() {
+  // Funksjon for å lagre gjeldende kurvdata til localStorage
   try {
     localStorage.setItem("cart-v1", JSON.stringify(cart));
   } catch {}
 }
 
 function getQty(id) {
+  // Henter antall for et gitt produkt-ID fra kurven, eller 0 hvis det ikke er i cart
   return cart.items[id] || 0;
 }
 function addOne(id) {
-  const p = products.find((x) => x.id === id);
-  if (!p) return;
-  cart.items[id] = (cart.items[id] || 0) + 1;
-  cart.count += 1;
-  cart.total += Number(p.price) || 0;
-  saveCart();
+  // Legger til en enhet av produktet med gitt ID i kurven
+  const p = products.find((x) => x.id === id); // Finner produktet i products-arrayen basert på ID
+  if (!p) return; // Hvis produktet ikke finnes, avslutter funksjonen
+  cart.items[id] = (cart.items[id] || 0) + 1; // Øker antallet for produktet i cart.items
+  cart.count += 1; // Øker totalantallet i kurven
+  cart.total += Number(p.price) || 0; // Øker totalprisen i kurven med produktets pris
+  saveCart(); // Lagrer den oppdaterte kurven til localStorage
 }
 function removeOne(id) {
-  const p = products.find((x) => x.id === id);
-  if (!p) return;
-  const curr = cart.items[id] || 0;
-  if (curr <= 0) return;
-  cart.items[id] = curr - 1;
-  cart.count = Math.max(0, cart.count - 1);
-  cart.total = Math.max(0, cart.total - (Number(p.price) || 0));
-  if (cart.items[id] === 0) delete cart.items[id];
-  saveCart();
+  // Fjerner en enhet av produktet med gitt ID fra kurven
+  const p = products.find((x) => x.id === id); // Finner produktet i products-arrayen basert på ID
+  if (!p) return; // Hvis produktet ikke finnes, avslutter funksjonen
+  const curr = cart.items[id] || 0; // Henter nåværende antall av produktet i kurven
+  if (curr <= 0) return; // Hvis antallet er 0 eller mindre, avslutter funksjonen
+  cart.items[id] = curr - 1; // Reduserer antallet for produktet i cart.items med 1
+  cart.count = Math.max(0, cart.count - 1); // Reduserer totalantallet i kurven, men ikke under 0
+  cart.total = Math.max(0, cart.total - (Number(p.price) || 0)); // Reduserer totalprisen i kurven, men ikke under 0
+  if (cart.items[id] === 0) delete cart.items[id]; // Fjerner produktet fra cart.items hvis antallet er 0
+  saveCart(); // Lagrer den oppdaterte kurven til localStorage
 }
 
 function updateOrderBar() {
-  const bar = document.querySelector(".order-bar");
-  const priceEl = document.querySelector(".order-bar__price");
-  const labelEl = document.querySelector(".order-bar__label");
-  if (!bar || !priceEl || !labelEl) return;
+  // Henter elementene i den flytende bestillingsbaren og oppdaterer innholdet basert på kurvens tilstand
+  const bar = document.querySelector(".order-bar"); // Henter bestillingsbar-elementet
+  const priceEl = document.querySelector(".order-bar__price"); // Henter pris-elementet i bestillingsbaren
+  const labelEl = document.querySelector(".order-bar__label"); // Henter label-elementet i bestillingsbaren
+  if (!bar || !priceEl || !labelEl) return; // Hvis noen av elementene mangler, avslutter funksjonen
 
-  const priceText = cart.total > 0 ? NOK(cart.total) : "0 kr";
-  priceEl.textContent = priceText;
+  const priceText = cart.total > 0 ? NOK(cart.total) : "0 kr"; // Formaterer totalprisen i NOK eller viser "0 kr" hvis totalen er 0
+  priceEl.textContent = priceText; // Oppdaterer pris-elementets tekstinnhold
   labelEl.textContent =
-    cart.count > 0 ? `Se din bestilling (${cart.count})` : "Se din bestilling";
-  bar.setAttribute("aria-label", `Se din bestilling – ${priceText}`);
+    cart.count > 0 ? `Se din bestilling (${cart.count})` : "Se din bestilling"; // Oppdaterer label-elementets tekst basert på antall varer i kurven
+  bar.setAttribute("aria-label", `Se din bestilling – ${priceText}`); // Setter talende aria-label på knappen for skjermlesere
 
   // SKJUL NÅR TOM:
-  bar.style.display = cart.count > 0 ? "block" : "none";
+  bar.style.display = cart.count > 0 ? "block" : "none"; // Viser eller skjuler bestillingsbaren basert på om det er varer i kurven
 }
 
 // ===============================
 // UI: actions-markup
 // ===============================
 function actionsHTML(id) {
-  const qty = getQty(id);
+  // Genererer HTML for handlingsknappene (legg til/stepper) basert på antall i kurven
+  const qty = getQty(id); // Henter antall for produktet med gitt ID fra kurven
   if (qty <= 0) {
-    return `<button class="add-btn" data-id="${id}">Legg til</button>`;
+    return `<button class="add-btn" data-id="${id}">Legg til</button>`; // Hvis antallet er 0 eller mindre, returnerer en "Legg til"-knapp
   }
-  return `
-    <div class="stepper" data-id="${id}">
+  return ` 
+    <div class="stepper" data-id="${id}"> 
       <button class="stepper__btn stepper__minus" aria-label="Fjern én" data-id="${id}">−</button>
       <span class="stepper__qty" aria-live="polite">${qty}</span>
       <button class="stepper__btn stepper__plus" aria-label="Legg til én" data-id="${id}">+</button>
     </div>
   `;
-}
+} // Hvis antallet er større enn 0, returnerer en stepper med minus- og plus-knapper samt antall i midten med aria-atributter og data-id for event-delegering
 
 // ===============================
 // RENDER MENY
 // ===============================
-const menu = document.getElementById("menu");
+const menu = document.getElementById("menu"); // Referanse til <main id="menu"> i HTML-dokumentet
 
 function renderMenu() {
-  if (!menu) return;
-  menu.innerHTML = "";
+  // Funksjon for å rendre menyen basert på produktene og deres kategorier
+  if (!menu) return; // Hvis meny-elementet ikke finnes, avslutter funksjonen
+  menu.innerHTML = ""; // Tømmer menyens innhold før rendering
 
   categoryOrder.forEach((category) => {
-    const items = products.filter((p) => p.category === category);
-    if (!items.length) return;
+    // Går gjennom hver kategori i den definerte rekkefølgen
+    const items = products.filter((p) => p.category === category); // Filtrerer produktene for å få de som tilhører den nåværende kategorien
+    if (!items.length) return; // Hvis det ikke finnes produkter i denne kategorien, hopper vi over til neste
 
-    const headingText =
-      category === "Japansk"
-        ? "Japansk inspirerte drikker"
-        : category === "Nordisk"
-        ? "Nordisk inspirerte drikker"
-        : `${category} drikker`;
+    const headingMap = {
+      Japansk: "Japansk inspirerte drikker",
+      Nordisk: "Nordisk inspirerte drikker",
+      Varme: "Varme drikker",
+      Kalde: "Kalde drikker",
+    };
 
-    const section = document.createElement("section");
-    section.id = sectionIdForCategory(category);
-    section.innerHTML = `
+    const headingText = headingMap[category] ?? `${category} drikker`;
+    // Bestemmer overskriftsteksten basert på kategorinavnet
+
+    const section = document.createElement("section"); // Oppretter et nytt seksjonselement for kategorien
+    section.id = sectionIdForCategory(category); // Setter ID-en for seksjonen basert på kategorien
+    section.innerHTML = ` 
       <h2>${headingText}</h2>
       <div class="product-grid"></div>
-    `;
-    const grid = section.querySelector(".product-grid");
+    `; // Setter inn overskriften og en tom produktgrid i seksjonen
+    const grid = section.querySelector(".product-grid"); // Referanse til produktgrid-elementet i seksjonen
 
     items.forEach((product) => {
-      const isFav = !!product.favorite;
-      const card = document.createElement("article");
-      card.className = "product-card";
-      card.dataset.fav = String(isFav);
+      // Går gjennom hvert produkt i den nåværende kategorien
+      const isFav = !!product.favorite; // Sjekker om produktet er merket som favoritt
+      const card = document.createElement("article"); // Oppretter et nytt artikkelelement for produktkortet
+      card.className = "product-card"; // Setter klassen til produktkortet
+      card.dataset.fav = String(isFav); // Setter data-attributtet for favorittstatus
 
-      card.innerHTML = `
-        <figure class="product-img">
-          <img src="${product.image}" alt="${product.name}" />
+      card.innerHTML = ` 
+        <figure class="product-img"> 
+          <img src="${product.image}" alt="${product.name}" /> 
           <button class="fav-btn ${isFav ? "is-fav" : ""}" data-id="${
         product.id
       }" aria-pressed="${
@@ -310,14 +332,14 @@ function renderMenu() {
             ${actionsHTML(product.id)}
           </div>
         </div>
-      `;
-      grid.appendChild(card);
+      `; // Setter inn produktbildet, favorittknappen, navn, beskrivelse, pris og handlingsknapper i produktkortet
+      grid.appendChild(card); // Legger til produktkortet i produktgrid-en
     });
 
-    menu.appendChild(section);
+    menu.appendChild(section); // Legger til seksjonen i menyen
   });
 
-  updateOrderBar();
+  updateOrderBar(); // Oppdaterer bestillingsbaren etter at menyen er rendret
 }
 
 // ===============================
