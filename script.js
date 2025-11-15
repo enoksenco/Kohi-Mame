@@ -288,7 +288,7 @@ function renderMenu() {
       Japansk: "Japansk inspirerte drikker",
       Nordisk: "Nordisk inspirerte drikker",
       Varme: "Varme drikker",
-      Kalde: "Kalde drikker",
+      Kalde: "Kalde",
     };
 
     const headingText = headingMap[category] ?? `${category} drikker`;
