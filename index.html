@@ -1,143 +1,121 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/index.css" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Montaga&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Shippori+Mincho&display=swap");
-    </style>
-    <title>Kohi mame</title>
+    <link rel="stylesheet" href="css/menu.css" />
+
+    <!-- Montaga + Montserrat font for text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montaga&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Meny</title>
   </head>
 
   <body>
     <header>
-      <nav>
-        <div>
-          <button id="overlay-btn">
-            <img src="/Assets/ikoner/burgermenu.png" alt="burgermeny" />
-          </button>
-          </div>
+      <!-- Top navigation menu -->
+      <nav class="top-nav">
+        <div class="hamburger-menu">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
         </div>
-
-        <div class="logo">
-          <a href="/Frontpage/Index.html"
-            ><img src="/Assets/Header logo.png" alt="logo"
-          /></a>
-        </div>
-
-        <div class="nav-icons">
-          <a href="/Linkpage/Emptylinks.html"
-            ><img src="/Assets/ikoner/Person.png" alt="Profil"
-          /></a>
-          <a href="/order.html"
-            ><img src="/Assets/ikoner/cart.png" alt="Handlevogn"
-          /></a>
+        <a href="index.html" class="logo-link">
+          <img src="assets/logo.png" alt="Logo" class="logo" />
+        </a>
+        <div class="icon-container">
+          <svg
+            class="user-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-person"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"
+            />
+          </svg>
+          <svg
+            class="cart-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-cart2"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+            />
+          </svg>
         </div>
       </nav>
 
-<div class="overlay-content">
-  <button id="close-overlay"><img src="/Assets/ikoner/close.png" alt="lukk burgermeny" width="20%"></button>
-  <div class="overlay-content-buttons">
-    <a href="/Frontpage/Index.html"><button class="button-styling">Hjem</button></a>
-    <a href="/Menupage/Menu.html"><button class="button-styling">Meny</button></a>
-    <a href="/Orderpage/order.html"><button class="button-styling">Bestilling</button></a>
-  </div>
- </div>
-      <div class="hero">
-        <h3 class="hero_txt_h3">Mame kara hajimaru</h3>
-        <h1 class="hero_txt_h1">Alt starter med en bønne.</h1>
-        <a href="/Menupage/Menu.html"><button class="CTA">Se meny</button></a>
-        <img
-          class="hero_image"
-          src="/Assets/Hero_image.png"
-          width="100%"
-          height="564px"
-          alt="Kaffekopp"
-        />
-      </div>
+      <!-- Navigation menu for coffee -->
+
+      <nav class="meny-nav" aria-label="Kaffe kategorier">
+        <a href="#japansk-inspirerte-drikker">Japansk</a>
+        <a href="#nordisk-inspirerte-drikker">Nordisk</a>
+        <a href="#varme-drikker">Varme</a>
+        <a href="#kalde-drikker">Kalde</a>
+      </nav>
     </header>
 
-    <main>
-      <section class="description">
-        <p>
-          Kohi Mame er mer enn en kaffebar! Det er et pusterom i hverdagen.
-          Navnet betyr kaffebønne på japansk og minner oss på at alt starte med
-          noe lite, men fullt av muligheter.
-        </p>
-      </section>
+    <main id="menu"></main>
 
-      <section class="customer_review">
-        <h3>Våre fornøyde gjester</h3>
-        <div class="carousel">
-          <div class="carousel_item">
-            <img
-              src="/Assets/ikoner/stjernerangering.png"
-              alt="stjernerangering"
-            />
-            <p>Finner roen her med en godt brygget kaffe i hånden.</p>
-            <p><strong>Marius</strong></p>
-          </div>
-          <div class="carousel_item">
-            <img
-              src="/Assets/ikoner/stjernerangering.png"
-              alt="stjernerangering"
-            />
-            <p>Min favoritt café! Elsker spesielt de japanske variantene.</p>
-            <p><strong>Mari</strong></p>
-          </div>
-          <div class="carousel_item">
-            <img
-              src="/Assets/ikoner/stjernerangering.png"
-              alt="stjernerangering"
-            />
-            <p>Et sted som må oppleves. Alltid noe spennende på menyen.</p>
-            <p><strong>Tirill</strong></p>
-          </div>
-        </div>
-      </section>
-
-      <section class="clubmembership">
-        <div class="clubmembership-input">
-          <h3>Kundeklubb</h3>
-          <form>
-            <label> Bli med i vårt fellesskap og få hver 6. kaffe gratis</label>
-            <br />
-            <input type="email" required placeholder="Epost" />
-            <button type="submit" class="clubmembership-button">Bli med</button>
-          </form>
-        </div>
-        
-      </section>
-    </main>
-
-    <section class="social-media">
-      <h3>Sosiale medier</h3>
-      <div class="social-media-icons">
-        <a href="/Linkpage/Emptylinks.html"><img src="/Assets/ikoner/Instagram ikon.png" alt="Instagram logo" /></a>
-       <a href="/Linkpage/Emptylinks.html"><img src="/Assets/ikoner/Facebook ikon.png" alt="facebook logo" /></a> 
-      </div>
-    </section>
     <footer>
       <section class="footer-align">
-        <a href="/Frontpage/"><img src="/Assets/ikoner/Logo.png" alt="logo-kohimame" ; /></a>
+        <img class="logo" src="assets/logo.png" alt="logo-kohimame" ; />
 
         <div class="footer-lists">
           <ul>
-            <li><a href="/Linkpage/Emptylinks.html"><strong>Om oss</strong></a></li>
-            <li><a href="/Linkpage/Emptylinks.html">lokasjon</a></li>
-            <li><a href="/Linkpage/Emptylinks.html">Om oss</a></li>
-            <li><a href="/Linkpage/Emptylinks.html">Vår historie</a></li>
+            <li><h3>Om oss</h3></li>
+            <li>Ledige stillinger</li>
+            <li>Cookie og personvern</li>
           </ul>
 
           <ul>
-            <li><a href="/Linkpage/Emptylinks.html"><strong>Informasjon</strong></a></li>
-            <li><a href="/Linkpage/Emptylinks.html">ledige stillinger</a></li>
-            <li><a href="/Linkpage/Emptylinks.html">Cookie og personvern</a></li>
+            <li><h3>Informasjon</h3></li>
+            <li>Lokasjon</li>
+            <li>Om oss</li>
+            <li>Vår historie</li>
           </ul>
         </div>
       </section>
     </footer>
-    <script src="js/index.js"></script>
+    <button
+      type="button"
+      class="order-bar"
+      aria-label="Se din bestilling – 138 kroner"
+    >
+      <div class="order-bar__inner">
+        <span class="order-bar__icon" aria-hidden="true">
+          <svg
+            class="cart-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-cart2"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+            />
+          </svg>
+        </span>
+        <span class="order-bar__label">Se din bestilling</span>
+        <span class="order-bar__price">138 kr</span>
+      </div>
+    </button>
+
+    <script src="js/script.js"></script>
   </body>
 </html>
