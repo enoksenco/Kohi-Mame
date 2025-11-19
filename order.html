@@ -3,177 +3,281 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/order.css">
+    <link rel="stylesheet" href="/Orderpage/order.css" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Montaga&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Shippori+Mincho&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Montaga&family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Public+Sans:wght@100..900&family=Shippori+Mincho&display=swap");
     </style>
-    <title>Kohi mame</title>
+    <title>Kohi Mame – Bestilling</title>
   </head>
 
   <body>
-    <header> 
+    <!-- =========================== HEADER / NAV =========================== -->
+    <header>
       <nav>
-        <div>
-          <button id="overlay">
-            <img src="/Assets/ikoner/burgermenu.png" alt="burgermeny" />
-          </button>
-          </div>
-        </div>
+        <!-- BURGER -->
+        <button id="overlay" aria-label="Åpne meny">
+          <img src="/Assets/ikoner/burgermenu.png" alt="Meny" />
+        </button>
 
+        <!-- LOGO -->
         <div class="logo">
-          <a href="/Frontpage/Index.html"
-            ><img src="/Assets/Header logo.png" alt="logo"
-          /></a>
+          <a href="/Frontpage/Index.html">
+            <img src="/Assets/Header logo.png" alt="Kohi Mame logo" />
+          </a>
         </div>
 
+        <!-- ICONS -->
         <div class="nav-icons">
-          <a href="/Index.html"
-            ><img src="/Assets/ikoner/Person.png" alt="Profil"
-          /></a>
-          <a href="/Orderpage/order.html"
-            ><img src="/Assets/ikoner/cart.png" alt="Handlevogn"
-          /></a>
+          <a href="/Index.html">
+            <img src="/Assets/ikoner/Person.png" alt="Profil" />
+          </a>
+          <a href="/Orderpage/order.html">
+            <img src="/Assets/ikoner/cart.png" alt="Handlevogn" />
+          </a>
         </div>
       </nav>
 
-<div class="overlay-content">
-  <button id="close-overlay"><img src="/Assets/ikoner/close.png" alt="lukk burgermeny" width="20%"></button>
-  <div class="overlay-content-buttons">
-    <a href="/Frontpage/Index.html"><button class="button-styling">Hjem</button></a>
-    <a href="/Menupage/Menu.html"><button class="button-styling">Meny</button></a>
-    <a href="/Orderpage/order.html"><button class="button-styling">Bestilling</button></a>
-  </div>
- </div>
-</header>
-<main>
+      <!-- BURGER OVERLAY -->
+      <div class="overlay-content" id="main-menu" aria-hidden="true">
+        <button id="close-overlay">
+          <img
+            src="/Assets/ikoner/close.png"
+            alt="Lukk burgermeny"
+            width="20%"
+          />
+        </button>
+
+        <div class="overlay-content-buttons">
+          <a href="/Frontpage/Index.html">
+            <button class="button-styling">Hjem</button>
+          </a>
+          <a href="/Menupage/Menu.html">
+            <button class="button-styling">Meny</button>
+          </a>
+          <a href="/Orderpage/order.html">
+            <button class="button-styling">Bestilling</button>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================== MAIN CONTENT =========================== -->
+    <main>
       <div class="orderpage-header">
         <h1>Din bestilling</h1>
       </div>
-    
-      <section class="summary-container">
-         <h2>Produkter</h2>
-    <div class="product-line">
-      <div class="product-line-counter"><img src="/Assets/ikoner/Subtraksjon.svg" alt="subtract"><p>1</p> <img src="/Assets/ikoner/Plusstegn.svg" alt="add"></div> 
-      <div class="product-line-products"><p>Vare 1</p></div>
-      <div class="product-line-price"><p></p>169kr</div>
-    </div>
-    <div class="product-line">
-      <div class="product-line-counter"><img src="/Assets/ikoner/Subtraksjon.svg" alt="subtract"><p>1</p> <img src="/Assets/ikoner/Plusstegn.svg" alt="add"></div> 
-      <div class="product-line-products"><p>Vare 2</p></div>
-      <div class="product-line-price"><p></p>69kr</div>
-    </div>
-        <hr>
-        <div class="summary-total">
-          <p>Å betale:</p>
-          <p>0 kr</p>
-        </div>      
-      </section>
-     
-    <div class="discount">
-        <form>
-          <label><h3>Rabattkode</h3></label>
-          <input class="name" required placeholder="Skriv inn rabattkoden her" />
-            <button type="submit">Bruk</button>
-        </form>
-      </div>
-       
-      <section class="pickup"> <!--her må man legge til js og onclick-funskjon-->
-        <h2>Hvordan vil du hente din bestilling?</h2>
-        <div class="pickup-options">
-          <button>Hos oss</button>
-          <button>Ta med</button>
-          <div class="pickup-grid">
-      <img src="/Assets/bønne.png" alt="kaffebønne">
-      <p id="pickup-location">På Markensgate 6</p>
-      <img src="/Assets/bønne.png" alt="kaffebønne">
-      <p id="pickup-time">Hentes om 5 minutter</p>
-          </div>
-          
-        </div>
-      </section>
-        
 
-         <div class="contact-information">
-          <h2>Kontaktinformasjon</h2>
-          <form>
-            <label>Navn*</label>
-            <input type="text" required placeholder="Ola Normann">
-            <br/>
-            <br/>
-            <label>Epost*</label>
-            <input type="email" required placeholder="ola.nordmann@gmail.com">
-             <br/>
-            <br/>
-            <label>Mobil*</label>
-            <input type="tel" required placeholder="+47 999 99 999">
+      <section class="order-wrapper">
+        <!-- =========================== VENSTRE SIDE =========================== -->
+        <div class="order-left">
+          <!-- ========== HENTEMÅTE ========== -->
+          <section class="pickup">
+            <h2>Hvordan vil du hente din bestilling?</h2>
+
+            <div class="pickup-options">
+              <div class="pickup-slider"></div>
+
+              <button
+                type="button"
+                class="pickup-btn is-active"
+                data-pick="take"
+              >
+                Ta med
+              </button>
+
+              <button type="button" class="pickup-btn" data-pick="here">
+                Hos oss
+              </button>
+            </div>
+
+            <!-- CHECKBOXER -->
+            <div class="pickup-details">
+              <div class="pickup-checkbox">
+                <input type="checkbox" id="pickup-location" />
+                <label for="pickup-location">Hentes på Markensgate 6</label>
+              </div>
+
+              <div class="pickup-checkbox">
+                <input type="checkbox" id="pickup-time" />
+                <label for="pickup-time">Hentes om 5 min</label>
+              </div>
+            </div>
+          </section>
+
+          <!-- ========== KONTAKTINFO ========== -->
+          <section class="contact-information">
+            <h2>Kontaktinformasjon</h2>
+
+            <form>
+              <div class="form-field">
+                <label for="name">Navn*</label>
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="Ola Nordmann"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="email">E-post*</label>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="ola.nordmann@gmail.com"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="phone">Mobil*</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  placeholder="+47 999 99 999"
+                  required
+                />
+              </div>
             </form>
-         </div>
+          </section>
 
-<section class="payment">
- <h2>Velg betalingsmåte</h2>
- <div class="payment-option1">
-  <img src="/Assets/ikoner/checkbox-empty.jpg" alt="Alternativ ikke valgt">
-  <img src="/Assets/ikoner/visa.png" alt="Visa">
-  <p>Bankkort</p>
-</div>
-  <div class="payment-option2">
-    <img src="/Assets/ikoner/checkbox-empty.jpg" alt="Alternativ ikke valgt">
-  <img src="/Assets/ikoner/vipps.png" alt="Vipps">
-  <p>Vipps</p>
-</div>
-  <div class="payment-option2-undertext"><p>Sikker og trygg betaling med Vipps. Ved betalingen angir du det telefonnummeret du vil bruke for å betale med Vipps.</p></div>
-<br/>
-<br/>
-<br/>
-<div class="payment-total"><h3>Totalpris 138 kr</h3></div>
-  <div></div>
-</section>
+          <!-- ========== BETALING ========== -->
+          <section class="payment">
+            <h2>Velg betalingsmåte</h2>
 
-<section class="terms">
-  <div class="term1">
-    <img src="/Assets/ikoner/Avhuking kaffeklubb.png" alt="Jeg vil bli medlem av kundeklubben">
-    <p>Jeg vil bli med i kundeklubben</p>
-    <br>
-    
-  </div> 
-  <div class="term1-criteria">
-    <img src="/Assets/ikoner/Avhuking kaffeklubb.png" alt="Jeg vil bli medlem av kundeklubben">
-    <p>Ved å bli med i kaffeklubben samtykker du til å motta nyheter og tilbud på e-post. Du kan melde deg av når som helst.</p>
-  </div>
-  
-  <div class="term2">
-    <img src="/Assets/ikoner/Avhuking kaffeklubb.png" alt="Godkjenner du vår cookie og personvernpolicy?">
-    <p>Når du bestiller godkjenner du angreretten, vår cookie og personvernspolicy samt våre kjøpsvilkår. Samt at du aksepterer at bestillingen først er juridisk bindende når vi har bekreftet bestillingen din.*</p>
-  </div>
-</section>
+            <!-- BANKKORT -->
+            <div class="payment-option is-selected">
+              <input type="radio" name="payment" id="pay-card" checked />
+              <label for="pay-card">
+                <img src="/Assets/ikoner/visa.png" alt="Visa" />
+                <span>Bankkort</span>
+              </label>
+            </div>
 
-<button type="submit"></button>
-</main>
+            <!-- VIPPS -->
+            <div class="payment-option">
+              <input type="radio" name="payment" id="pay-vipps" />
+              <label for="pay-vipps">
+                <img src="/Assets/ikoner/vipps.png" alt="Vipps" />
+                <span>Vipps</span>
+              </label>
+            </div>
 
+            <div class="payment-option2-undertext">
+              <p>
+                Sikker og trygg betaling med Vipps. Ved betaling bruker du det
+                telefonnummeret som er registrert i Vipps.
+              </p>
+            </div>
 
+            <div class="payment-total">
+              <h3>Totalpris <span id="payment-total-amount">138 kr</span></h3>
+            </div>
 
- 
+            <!-- ========== VILKÅR ========== -->
+            <section class="terms">
+              <div class="term1">
+                <input type="checkbox" id="club" />
+                <label for="club">Jeg vil bli med i kaffeklubben</label>
+              </div>
 
+              <div class="term1-criteria">
+                <p>
+                  Ved å melde deg inn samtykker du til å motta tilbud og
+                  nyheter. Du kan melde deg av når som helst.
+                </p>
+              </div>
+
+              <div class="term2">
+                <input type="checkbox" id="terms" />
+                <label for="terms">
+                  Ved bestilling godkjenner du angreretten, vår cookie- og
+                  personvernpolicy samt våre kjøpsvilkår. Bestillingen er
+                  juridisk bindende når den er bekreftet.
+                </label>
+              </div>
+            </section>
+
+            <div class="order-submit">
+              <button class="primary-button">Gå til trygg betaling</button>
+            </div>
+          </section>
+        </div>
+
+        <!-- =========================== HØYRE SIDE =========================== -->
+        <aside class="order-right">
+          <!-- ========== PRODUKTER ========== -->
+          <section class="summary-container">
+            <h2>Produkter</h2>
+
+            <!-- PRODUKT 1 -->
+            <div class="product-line" data-unit-price="69">
+              <div class="product-line-counter">
+                <button data-type="minus"><span>−</span></button>
+                <p>1</p>
+                <button data-type="plus"><span>+</span></button>
+              </div>
+              <div class="product-line-products"><p>Uni Latte</p></div>
+              <div class="product-line-price"><p>69 kr</p></div>
+            </div>
+
+            <!-- PRODUKT 2 -->
+            <div class="product-line" data-unit-price="69">
+              <div class="product-line-counter">
+                <button data-type="minus"><span>−</span></button>
+                <p>1</p>
+                <button data-type="plus"><span>+</span></button>
+              </div>
+              <div class="product-line-products"><p>Midnattssol</p></div>
+              <div class="product-line-price"><p>69 kr</p></div>
+            </div>
+
+            <hr />
+
+            <div class="summary-total">
+              <p>Å betale:</p>
+              <p id="summary-total-amount">138 kr</p>
+            </div>
+
+            <p id="discount-info" class="discount-info"></p>
+          </section>
+
+          <!-- ========== RABATTKODE ========== -->
+          <section class="discount">
+            <h3>Rabattkode</h3>
+
+            <form>
+              <input id="discount-code" type="text" placeholder="Angi kode" />
+              <button type="submit">Bruk</button>
+            </form>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <!-- =========================== FOOTER =========================== -->
     <footer>
       <section class="footer-align">
-        <a href="/Frontpage/"><img src="/Assets/ikoner/Logo.png" alt="logo-kohimame" ; /></a>
+        <a href="/Frontpage/Index.html">
+          <img src="/Assets/ikoner/Logo.png" alt="Kohi Mame logo" />
+        </a>
 
         <div class="footer-lists">
           <ul>
-            <li><a href="/Linkpage/Emptylinks.html"><strong>Om oss</strong></a></li>
-            <li><a href="/Linkpage/Emptylinks.html">lokasjon</a></li>
-            <li><a href="/Linkpage/Emptylinks.html">Om oss</a></li>
-            <li><a href="/Linkpage/Emptylinks.html">Vår historie</a></li>
+            <li><strong>Om oss</strong></li>
+            <li>Lokasjon</li>
+            <li>Vår historie</li>
           </ul>
 
           <ul>
-            <li><a href="/Linkpage/Emptylinks.html"><strong>Informasjon</strong></a></li>
-            <li><a href="/Linkpage/Emptylinks.html">ledige stillinger</a></li>
-            <li><a href="menu.html">Cookie og personvern</a></li>
+            <li><strong>Informasjon</strong></li>
+            <li>Ledige stillinger</li>
+            <li>Cookie og personvern</li>
           </ul>
         </div>
       </section>
     </footer>
-    <script src="js/order.js"></script>
+
+    <script src="/Orderpage/order.js"></script>
   </body>
 </html>
